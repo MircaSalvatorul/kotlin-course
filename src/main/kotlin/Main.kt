@@ -1,9 +1,18 @@
 fun main() {
-    println("Please input a number")
-    val input = readln().toInt()
-    var x=5
-    x+=5
-    val y=9
-    val areBothEven = input%2 == 0 && y%2==0
-    println("Is x an even number? $areBothEven")
+    println("Please enter a number: ")
+    val input = readln()
+    throw Exception("Dude, wtf did u pass there?!" )
+    val inputAsInteger= try{
+        input.toInt()
+    } catch (e: NumberFormatException) {
+        0
+    }
+
+    val output=when(inputAsInteger){
+        3->"The number is three"
+        5->"The number is five"
+        in 4..20 -> "The number is between 10 and 20"
+        else -> "I have no ideea what to print"
+    }
+    println(output)
 }
